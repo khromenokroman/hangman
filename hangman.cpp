@@ -77,7 +77,7 @@ void print_text(const std::vector<char> &word_user, char &letter, int &error) //
 
 int main()
 {
-    std::vector<std::string> words;
+    std::vector<std::string> words; //общий словарь
     words.push_back("think");
     words.push_back("differ");
     words.push_back("move");
@@ -85,8 +85,8 @@ int main()
     words.push_back("make");
     words.push_back("look");
     words.push_back("answer");
-    srand(static_cast<unsigned>(time(0)));
-    std::random_shuffle(words.begin(),words.end());
+    srand(static_cast<unsigned>(time(0))); //чтоб размесить слова, можно прикрутить чтоб слова брал из файлика
+    std::random_shuffle(words.begin(),words.end()); // мешает слова
     std::string word = words[0];
     std::vector<char> word_user;
 
@@ -103,14 +103,14 @@ int main()
 
         repeat = false;
         error_fl = true;
-        print_text(word_user, letter, error);
+        print_text(word_user, letter, error); //рисуем
         if (error == 5)
         {
             std::cout << "Вы проиграли" << std::endl;
             repeat = true;
             break;
         }
-        for (int i = 0; i < word.length(); i++)
+        for (int i = 0; i < word.length(); i++) //проверяем совпадение букв
         {
             if (word[i] == letter)
             {
